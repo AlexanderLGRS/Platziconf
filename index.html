@@ -14,39 +14,37 @@
     <title>Project</title>
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
     <!-- Header -->
-    <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="./assets/platzi-logo.png" alt="Logo Platzi">
-                    Conf Hawaii
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">La conferencia</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Los oradores</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Lugar y fecha</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sé un orador</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-platzi" href="#">Compra de tickets</a>
-                        </li>
-                    </ul>
-                </div>
+            <a class="navbar-brand" href="#">
+                <img src="./assets/platzi-logo.png" alt="Logo Platzi">
+                Conf Hawaii
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#main">La conferencia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#speakers">Los oradores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#place-time">Lugar y fecha</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#conviertete-en-orador">Sé un orador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-platzi" href="#modalCompra" data-bs-target="#modalCompra"
+                            data-bs-toggle="modal">Compra de tickets</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -79,7 +77,8 @@
                                 de primer nivel que tenemos para ti. Te esperamos.
                             </p>
                             <a class="btn btn-dark" href="#">Quiero ser orador</a>
-                            <button class="btn btn-platzi" type="button">Comprar tickets</button>
+                            <button class="btn btn-platzi" type="button" data-bs-toggle="modal"
+                                data-bs-target="#modalCompra">Comprar tickets</button>
                         </div>
                     </div>
                 </div>
@@ -199,7 +198,8 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    Inscribete como orador para dar una charla ignite.
+                    Inscribete como orador para dar una <abbr data-bs-toggle="tooltip" data-bs-html="true"
+                        title="charlas de 5 minutos">charla ignite.</abbr>
                     Cuéntanos de que quieres hablar!
                 </div>
             </div>
@@ -224,7 +224,8 @@
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <button type="button" class="btn btn-platzi">Enviar</button></div>
+                            <button type="button" class="btn btn-platzi">Enviar</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -261,18 +262,44 @@
     </footer>
     <!-- Footer -->
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Modal -->
+    <div class="modal fade" id="modalCompra" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="modalCompraLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCompraLabel">Comprar tickets</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-row">
+                            <div class="form-group-col">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">@</span>
+                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="alert alert-warning" role="alert">
+                        Recibirás un correo de confirmación.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-platzi">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-    -->
 </body>
 
 </html>
